@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import BasketTable from "./components/BasketTable";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* <h1>AKQA</h1> */}
+      {/* <h2>Your Basket</h2> */}
+      <div className="header-text">
+        <p>Items you have added to your basket are shown below.</p>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Adjust the quantities or remove items before continuing your purchase.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BasketTable />
+      </div>
     </div>
   );
 }
