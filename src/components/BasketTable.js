@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import BasketRow from "./BasketRow";
+import ProductRow from "./ProductRow";
+import products from "../resources/products";
 
 class BasketTable extends Component {
+  
   render() {
     return (
-      <table>
+      <table className="productTable">
         <thead>
           <tr>
             <th>Product</th>
@@ -13,7 +15,15 @@ class BasketTable extends Component {
             <th>Cost</th>
           </tr>
         </thead>
-        <BasketRow />
+        <tbody>
+          {products.map((product, index) => (
+            <ProductRow
+              product={product}
+              key={index}
+              countSubTotal={this.props.countSubTotal}
+            />
+          ))}
+        </tbody>
       </table>
     );
   }
