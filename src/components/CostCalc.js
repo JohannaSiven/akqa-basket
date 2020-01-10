@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export class CostCalc extends Component {
+class CostCalc extends Component {
   render() {
     const { subTotal } = this.props;
     const vat = 0.2;

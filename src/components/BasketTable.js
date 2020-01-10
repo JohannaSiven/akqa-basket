@@ -3,7 +3,7 @@ import ProductRow from "./ProductRow";
 import products from "../resources/products";
 
 class BasketTable extends Component {
-  
+
   render() {
     return (
       <table className="productTable">
@@ -20,7 +20,7 @@ class BasketTable extends Component {
             <ProductRow
               product={product}
               key={index}
-              countSubTotal={this.props.countSubTotal}
+              calcSubTotal={this.props.calcSubTotal}
             />
           ))}
         </tbody>

@@ -7,18 +7,17 @@ class Basket extends Component {
     subTotal: 0
   };
 
-  countSubTotal = rowCost => {
+  calcSubTotal = changeToPrev => {
+    const newSubTotal = (this.state.subTotal += changeToPrev);
     this.setState({
-      subTotal: (this.state.subTotal += rowCost)
+      subTotal: newSubTotal
     });
   };
 
-  
   render() {
-    console.log(this.state);
     return (
       <div>
-        <BasketTable countSubTotal={this.countSubTotal} />
+        <BasketTable calcSubTotal={this.calcSubTotal} />
         <CostCalc subTotal={this.state.subTotal} />
       </div>
     );

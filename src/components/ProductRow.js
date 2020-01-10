@@ -4,15 +4,16 @@ import RowDeleteBtn from "./RowDeleteBtn";
 
 export class ProductRow extends Component {
   state = {
-    cost: 0
+    rowValue: 0
   };
 
-  updateCost = cost => {
-    console.log(cost);
-    this.setState({
-      cost: cost
-    },
-    () => this.props.countSubTotal(this.state.cost));
+  updateRowValue = (newRowValue, change) => {
+    this.setState(
+      {
+        rowValue: newRowValue
+      },
+      () => this.props.calcSubTotal(change)
+    );
   };
 
   render() {
@@ -25,11 +26,11 @@ export class ProductRow extends Component {
           <RowQty
             initialQty={product.qty}
             unitPrice={product.price}
-            setQty={this.setQty}
-            updateCost={this.updateCost}
+            updateRowValue={this.updateRowValue}
+            calcSubTotal={this.props.calcSubTotal}
           />
         </td>
-        <td>£{parseFloat(this.state.cost).toFixed(2)}</td>
+        <td>£{parseFloat(this.state.rowValue).toFixed(2)}</td>
         <td>
           <RowDeleteBtn deleteRow={this.deleteRow} />
         </td>

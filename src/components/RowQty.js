@@ -14,7 +14,7 @@ class RowQty extends Component {
         unitPrice: this.props.unitPrice,
         cost: this.props.initialQty * this.props.unitPrice
       },
-      () => this.props.updateCost(this.props.initialQty * this.props.unitPrice)
+      () => this.props.updateRowValue(this.state.cost, this.state.cost)
     );
   };
 
@@ -24,7 +24,7 @@ class RowQty extends Component {
         qty: Number(event.target.value),
         cost: this.state.cost * Number(event.target.value)
       },
-      () => this.props.updateCost(this.state.cost)
+      () => this.props.updateRowValue(this.state.cost, this.state.change)
     );
   };
 
@@ -34,17 +34,18 @@ class RowQty extends Component {
         qty: this.state.qty + 1,
         cost: this.state.cost + this.state.unitPrice
       },
-      () => this.props.updateCost(this.state.cost)
+      () => this.props.updateRowValue(this.state.cost, this.state.unitPrice)
     );
   };
 
   subOne = () => {
     this.setState(
       {
-        qty: this.state.qty + (-1),
-        cost: this.state.cost - (this.state.unitPrice * 1)
+        qty: this.state.qty + -1,
+        cost: this.state.cost + -1 * this.state.unitPrice
       },
-      () => this.props.updateCost(this.state.cost)
+      () =>
+        this.props.updateRowValue(this.state.cost, -1 * this.state.unitPrice)
     );
   };
 
@@ -54,6 +55,8 @@ class RowQty extends Component {
         <input
           className="qtyInput"
           type="text"
+          min="0"
+          max="10"
           value={this.state.qty}
           onChange={this.onChange}
         />
