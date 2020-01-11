@@ -3,7 +3,6 @@ import ProductRow from "./ProductRow";
 import products from "../resources/products";
 
 class BasketTable extends Component {
-
   render() {
     return (
       <table className="productTable">
@@ -21,6 +20,7 @@ class BasketTable extends Component {
               product={product}
               key={index}
               calcSubTotal={this.props.calcSubTotal}
+              buildBasket={this.props.buildBasket}
             />
           ))}
         </tbody>

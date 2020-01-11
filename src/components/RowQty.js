@@ -18,15 +18,28 @@ class RowQty extends Component {
     );
   };
 
-  onChange = event => {
-    this.setState(
-      {
-        qty: Number(event.target.value),
-        cost: this.state.cost * Number(event.target.value)
-      },
-      () => this.props.updateRowValue(this.state.cost, this.state.change)
-    );
-  };
+  // onChange = event => {
+  //   console.log(event.target.value);
+  //   let inputQty = Number(event.target.value)
+  //   if(inputQty < 0){
+  //     this.setState(
+  //       {
+  //         qty: 0,
+  //         cost: 0
+  //       }
+  //       //,
+  //       //() => this.props.updateRowValue(this.state.cost.toFixed(2), this.state.change)
+  //     );
+  //   }
+  //   this.setState(
+  //     {
+  //       qty: Number(event.target.value),
+  //       cost: this.state.cost * Number(event.target.value)
+  //     }
+  //     //,
+  //     //() => this.props.updateRowValue(this.state.cost.toFixed(2), this.state.change)
+  //   );
+  // };
 
   addOne = () => {
     this.setState(
@@ -34,7 +47,7 @@ class RowQty extends Component {
         qty: this.state.qty + 1,
         cost: this.state.cost + this.state.unitPrice
       },
-      () => this.props.updateRowValue(this.state.cost, this.state.unitPrice)
+      () => this.props.updateRowValue(this.state.cost.toFixed(2), this.state.unitPrice)
     );
   };
 
@@ -45,7 +58,7 @@ class RowQty extends Component {
         cost: this.state.cost + -1 * this.state.unitPrice
       },
       () =>
-        this.props.updateRowValue(this.state.cost, -1 * this.state.unitPrice)
+        this.props.updateRowValue(this.state.cost.toFixed(2), -1 * this.state.unitPrice)
     );
   };
 
@@ -55,8 +68,6 @@ class RowQty extends Component {
         <input
           className="qtyInput"
           type="text"
-          min="0"
-          max="10"
           value={this.state.qty}
           onChange={this.onChange}
         />

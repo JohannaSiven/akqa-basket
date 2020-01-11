@@ -4,10 +4,10 @@ import Basket from "./components/Basket";
 function App() {
   return (
     <div className="App">
-      {/* <div className="heading">
+      <div className="heading">
         <h1>AKQA</h1>
         <h2>Your Basket</h2>
-      </div> */}
+      </div>
       <div className="headerText">
         <p>Items you have added to your basket are shown below.</p>
         <p>
