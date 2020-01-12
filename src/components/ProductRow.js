@@ -6,6 +6,7 @@ class ProductRow extends Component {
   state = {
     name: "",
     price: 0,
+    qty: 0,
     rowValue: 0,
     deleted: false
   };
@@ -16,19 +17,21 @@ class ProductRow extends Component {
       {
         name: name,
         price: price,
+        qty: qty,
         rowValue: price * qty
       },
-      () => this.updateRowValue(this.state.rowValue.toFixed(2), 0)
+      () => this.updateRowValue(this.state.rowValue.toFixed(2), 0, this.state.qty)
     );
   };
 
-  updateRowValue = (newRowValue, change) => {
-    if (newRowValue < 0) {
+  updateRowValue = (newRowValue, change, qty) => {
+    if (newRowValue <= 1) {
       return;
     } else {
       this.setState(
         {
-          rowValue: newRowValue
+          rowValue: Number(newRowValue),
+          qty: qty
         },
         () => this.updateBasket(this.state, change)
       );
@@ -60,6 +63,7 @@ class ProductRow extends Component {
             <td>
               <RowQty
                 initialQty={product.qty}
+                qty={this.state.qty}
                 unitPrice={product.price}
                 updateRowValue={this.updateRowValue}
                 calcSubTotal={this.props.calcSubTotal}

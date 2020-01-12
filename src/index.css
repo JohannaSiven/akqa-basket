@@ -1,17 +1,32 @@
 body {
   font-family: "Noto Serif", serif;
-  background: light-grey;
-  margin: 30px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(218, 218, 218, 1)
+  );
+  background-attachment: fixed;
+  margin: 0 auto;
+  width: 500px;
+}
+
+#logo {
+  margin-bottom: 30px;
 }
 
 .heading {
   text-align: left;
-  margin: 30px 0px;
+  margin: 70px 0px 0px 0px;
+  padding-left: 15px;
+}
+
+.heading h2 {
+  text-shadow: 1px 2px #b9b8b8b3;
 }
 
 .headerText {
   text-align: left;
-  margin: 30px 0px;
+  margin: 0px 0px 40px 0px;
+  padding-left: 15px;
 }
 
 .headerText p {
@@ -19,15 +34,41 @@ body {
   margin: 0;
 }
 
-/* .productTable {
-} */
+.basket {
+  margin-bottom: 100px;
+}
 
-.productRow {
+table {
+  border-collapse: collapse;
+}
+
+.productTable {
   text-align: left;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.productTable th {
+  border-bottom: solid rgb(124, 121, 121) 1px;
+  padding-left: 15px;
 }
 
 .productRow td {
-  padding: 0px 5px;
+  padding: 10px 10px;
+}
+
+.productRow td:nth-child(3) {
+  width: 60px;
+}
+
+.productRow:nth-child(even) {
+  background-color: rgb(221, 221, 221)
+}
+
+.qtyBtn {
+  background-color: rgb(160, 160, 160);
+  color: white;
+  width: 10px;
 }
 
 .qtyInput {
@@ -35,9 +76,64 @@ body {
   text-align: right;
 }
 
-.costCalc {
+.costCalc div {
   display: flex;
   justify-content: space-between;
-  margin-right: 10%
+  margin-right: 15%;
+  color: rgb(136, 136, 136);
 }
 
+.costCalc div p {
+  margin: 0px;
+  padding-left: 15px;
+}
+
+#totalCost {
+  font-weight: bold;
+  color: black;
+  margin: 20px 15% 0px 0px;
+}
+
+.deleteBtn {
+  background-color: transparent;
+  color: rgb(0, 7, 98);
+}
+
+.buyBtn {
+  background-color: rgb(0, 7, 98);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 5px;
+  margin: 40px 70px;
+  border-radius: 10px;
+  box-shadow: 2px 3px #878787b3;
+  float: right;
+}
+
+.disabledBuyBtn {
+  background-color: rgb(221, 221, 221);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 10px 5px;
+  margin: 40px 70px;
+  border-radius: 10px;
+  box-shadow: 2px 3px #878787b3;
+  float: right;
+}
+
+footer {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  margin-bottom: 0px;
+  background-color: rgb(102, 102, 102);
+  color: white;
+  font-size: 0.7em;
+}
+
+footer p {
+  margin-right: 30%;
+}

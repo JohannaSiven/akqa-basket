@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+//import axios from "axios";
 
 class BuyBtn extends Component {
   state = {
@@ -11,7 +11,7 @@ class BuyBtn extends Component {
 
     /*
     axios.post('/',basket) 
-     --> where basket is an object containing the current basket contents
+     --> where basket is an object containing the current basket contents, used as request body
      --> here replaced with a blank promise that resolves in 500ms 
      */
     new Promise(resolve => setTimeout(resolve, 500))
@@ -20,20 +20,20 @@ class BuyBtn extends Component {
       */
       .then(() =>
         alert(`Successfully submitted basket with total of £${total}`)
+        //console.log('sent basket: ', basket)
       )
       .catch(err => console.log(err));
   };
 
   render() {
-    console.log(this.props.basket);
     return (
       <div>
         {this.props.basket.length > 0 ? (
-          <button onClick={this.submitBasket}>Buy Now>></button>
+          <button className="buyBtn" onClick={this.submitBasket}>Buy Now>></button>
         )
         :
         (
-          <button onClick={this.submitBasket} disabled>Buy Now>></button>
+          <button onClick={this.submitBasket} className="disabledBuyBtn" disabled>Buy Now>></button>
         )}
       </div>
     );

@@ -19,7 +19,6 @@ class RowQty extends Component {
   };
 
   // onChange = event => {
-  //   console.log(event.target.value);
   //   let inputQty = Number(event.target.value)
   //   if(inputQty < 0){
   //     this.setState(
@@ -28,7 +27,8 @@ class RowQty extends Component {
   //         cost: 0
   //       }
   //       //,
-  //       //() => this.props.updateRowValue(this.state.cost.toFixed(2), this.state.change)
+  //       //() => this.props.updateRowValue(this.state.cost.toFixed(2), this.state.change,
+  //       this.state.qty)
   //     );
   //   }
   //   this.setState(
@@ -47,7 +47,12 @@ class RowQty extends Component {
         qty: this.state.qty + 1,
         cost: this.state.cost + this.state.unitPrice
       },
-      () => this.props.updateRowValue(this.state.cost.toFixed(2), this.state.unitPrice)
+      () =>
+        this.props.updateRowValue(
+          this.state.cost.toFixed(2),
+          this.state.unitPrice,
+          this.state.qty
+        )
     );
   };
 
@@ -58,21 +63,50 @@ class RowQty extends Component {
         cost: this.state.cost + -1 * this.state.unitPrice
       },
       () =>
-        this.props.updateRowValue(this.state.cost.toFixed(2), -1 * this.state.unitPrice)
+        this.props.updateRowValue(
+          this.state.cost.toFixed(2),
+          -1 * this.state.unitPrice,
+          this.state.qty
+        )
     );
   };
 
   render() {
     return (
       <>
-        <input
-          className="qtyInput"
-          type="text"
-          value={this.state.qty}
-          onChange={this.onChange}
-        />
-        <button onClick={this.addOne}>+</button>
-        <button onClick={this.subOne}>-</button>
+        {this.state.qty > 1 ? (
+          <>
+            <input
+              className="qtyInput"
+              type="text"
+              value={this.state.qty}
+              //onChange={this.onChange}
+              readOnly
+            />
+            <button className="qtyBtn" onClick={this.addOne}>
+              +
+            </button>
+            <button className="qtyBtn" onClick={this.subOne}>
+              -
+            </button>
+          </>
+        ) : (
+          <>
+            <input
+              className="qtyInput"
+              type="text"
+              value="1"
+              //onChange={this.onChange}
+              readOnly
+            />
+            <button className="qtyBtn" onClick={this.addOne}>
+              +
+            </button>
+            <button className="qtyBtn" onClick={this.subOne} disabled>
+              -
+            </button>
+          </>
+        )}
       </>
     );
   }

@@ -15,7 +15,6 @@ class Basket extends Component {
     for (let i = 0; i < initialBasket.length; i++) {
       initialBasket[i].rowValue = initialBasket[i].price * initialBasket[i].qty;
     }
-
     this.setState({
       basket: initialBasket
     });
@@ -37,8 +36,9 @@ class Basket extends Component {
 
   buildBasket = rowToBasket => {
     let currentBasket = [...this.state.basket];
+    
     let updatedRow = [rowToBasket];
-    if (rowToBasket.deleted === true) {
+    if (rowToBasket.deleted === true || rowToBasket.rowValue <= 0) {
       let newBasket = currentBasket.filter(
         existingProduct => existingProduct.name !== rowToBasket.name
       );
@@ -55,14 +55,13 @@ class Basket extends Component {
 
       this.setState({
         basket: newBasket
-      });
+      })
     }
   };
 
   render() {
-    console.log(this.state.basket);
     return (
-      <div>
+      <div className="basket">
         <BasketTable
           calcSubTotal={this.calcSubTotal}
           buildBasket={this.buildBasket}
