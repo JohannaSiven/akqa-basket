@@ -20,8 +20,8 @@ class BuyBtn extends Component {
         --> here replaced with an alert msg 
       */
       .then(() =>
-        //alert(`Successfully submitted basket with total of £${total}`)
-        console.log('sent basket: ', submittedBasket)
+        alert(`Successfully submitted basket with total of £${total}`)
+        //console.log('sent basket: ', submittedBasket)
       )
       .catch(err => console.log(err));
   };
