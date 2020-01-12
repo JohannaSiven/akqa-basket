@@ -8,7 +8,7 @@ A filled shopping cart can be submitted with the Buy Now -button, which triggers
 
 ### Used technologies
 
-Javascript, JSX, ReactJS, CSS
+Javascript, JSX, ReactJS, CSS <br>
 Developed with Visual Studio Code
 
 ## To run the app
