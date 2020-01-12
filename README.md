@@ -11,7 +11,7 @@ A filled shopping cart can be submitted with the Buy Now -button, which triggers
 Javascript, JSX, ReactJS, CSS <br>
 Developed with Visual Studio Code
 
-## To run the app
+### To run the app
 
 Please run locally:
 
