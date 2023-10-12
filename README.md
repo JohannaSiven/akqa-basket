@@ -9,7 +9,6 @@ A filled shopping cart can be submitted with the Buy Now -button, which triggers
 ### Used technologies
 
 Javascript, JSX, ReactJS, CSS <br>
-Developed with Visual Studio Code
 
 ### To run the app
 
@@ -17,6 +16,6 @@ Please run locally:
 
 - root: `npm install` --> `npm start` --> opens the app on localhost:3000
 
-If the app is running correctly, you should see the prefilled shopping cart when launching the app on localhost:3000.
+You'll see a prefilled shopping cart when launching the app on localhost:3000.
 
 
